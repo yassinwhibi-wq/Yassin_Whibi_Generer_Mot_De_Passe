@@ -1,71 +1,76 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Password</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Password Gen</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="images/logo.png" />
 </head>
+
 <body>
-  <header class="entete">
-    <div class="marque">
-      <h1>Smart Password Gen</h1>
-      <p>Générateur simple et sécurisé</p>
-    </div>
+    <header class="entete">
+        <div class="marque">
+            <img src="images/logo.png" alt="logo">
+            <h1>Smart Password Gen</h1>
+            <p>Générateur simple et sécurisé</p>
+        </div>
 
-    <nav>
-      <ul class="menu">
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#generateur">Générateur</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#generateur">Générateur</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main class="page">
-    <section class="hero">
-      <h2>Créer un mot de passe fort et mémorable</h2>
-      <p>Une interface simple pour générer des mots de passe sécurisés.</p>
-    </section>
-
-    <section class="zone">
-      <aside class="details">
-        <h3>Détails</h3>
-        <p><strong>Longueur :</strong> <span id="longueurTexte">0</span></p>
-        <p><strong>Niveau :</strong> <span id="niveauTexte">-</span></p>
-        <p><strong>Temps estimé :</strong> <span id="tempsTexte">-</span></p>
-        <progress id="barre" max="100" value="0"></progress>
-      </aside>
-
-      <section class="generateur" id="generateur">
-        <h3>Générateur</h3>
-
-        <label for="taille">Longueur : <span id="tailleValeur">14</span></label>
-        <input id="taille" type="range" min="6" max="32" value="14" />
-
-        <section class="options">
-          <label><input id="maj" type="checkbox" checked /> Majuscules</label>
-          <label><input id="min" type="checkbox" checked /> Minuscules</label>
-          <label><input id="chiffre" type="checkbox" checked /> Chiffres</label>
-          <label><input id="symbole" type="checkbox" checked /> Symboles</label>
+    <main class="page">
+        <section class="hero">
+            <h2>Créer un mot de passe fort et mémorable</h2>
+            <p>Une interface simple pour générer des mots de passe sécurisés.</p>
         </section>
 
-        <section class="actions">
-          <button id="generer">Générer</button>
-          <button id="copier">Copier</button>
+        <section class="zone">
+            <aside class="details">
+                <h3>Détails</h3>
+                <p><strong>Longueur :</strong> <span id="longueurTexte">0</span></p>
+                <p><strong>Niveau :</strong> <span id="niveauTexte">-</span></p>
+                <p><strong>Temps estimé :</strong> <span id="tempsTexte">-</span></p>
+                <progress id="barre" max="100" value="0"></progress>
+            </aside>
+
+            <section class="generateur" id="generateur">
+                <h3>Générateur</h3>
+
+                <label for="taille">Longueur : <span id="tailleValeur">14</span></label>
+                <input id="taille" type="range" min="6" max="32" value="14" />
+
+                <section class="options">
+                    <label><input id="maj" type="checkbox" checked /> Majuscules</label>
+                    <label><input id="min" type="checkbox" checked /> Minuscules</label>
+                    <label><input id="chiffre" type="checkbox" checked /> Chiffres</label>
+                    <label><input id="symbole" type="checkbox" checked /> Symboles</label>
+                </section>
+
+                <section class="actions">
+                    <button id="generer">Générer</button>
+                    <button id="copier">Copier</button>
+                </section>
+
+                <label for="resultat">Mot de passe</label>
+                <input id="resultat" type="text" readonly />
+
+                <section class="historique">
+                    <h3>Historique</h3>
+                    <ul id="listeHistorique"></ul>
+                </section>
+            </section>
         </section>
+    </main>
 
-        <label for="resultat">Mot de passe</label>
-        <input id="resultat" type="text" readonly />
-
-        <section class="historique">
-          <h3>Historique</h3>
-          <ul id="listeHistorique"></ul>
-        </section>
-      </section>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
