@@ -46,9 +46,10 @@ btnGen.onclick = () => {
 
   resultat.value = pass;
 
-  // DETAILS
+  // longueur
   longueurTexte.textContent = pass.length;
 
+  // score sécurité
   let score = 0;
   if(pass.length > 8) score += 30;
   if(pass.length > 12) score += 30;
@@ -61,9 +62,21 @@ btnGen.onclick = () => {
   else if(score < 70) niveauTexte.textContent = "Moyen";
   else niveauTexte.textContent = "Fort";
 
-  tempsTexte.textContent = score < 40 ? "Rapide" : score < 70 ? "Quelques heures" : "Très long";
+  // 🔢 calcul réel du temps (secondes)
+  let N = 0;
+  if(maj.checked) N += 26;
+  if(min.checked) N += 26;
+  if(chiffre.checked) N += 10;
+  if(symbole.checked) N += 16;
 
-  // HISTORIQUE
+  let L = pass.length;
+  let R = 1e9; // 1 milliard essais/sec
+
+  let T = Math.pow(N, L) / R;
+
+  tempsTexte.textContent = T.toExponential(2) + " sec";
+
+  // historique
   const li = document.createElement("li");
   li.textContent = pass;
   historique.prepend(li);
